@@ -1,6 +1,7 @@
 #ifndef TAMPILAN_DATA_H
 #define TAMPILAN_DATA_H
 #include <QWidget>
+#include <QTableWidget>
 
 class tampilan_data : public QWidget
 {

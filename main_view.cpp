@@ -22,7 +22,6 @@ main_view::main_view(QWidget *parent)
          return;
 }
 
-    qDebug()<<db.isValid();
 
 
     this->setup_ui();
@@ -50,7 +49,7 @@ void main_view::setup_ui(){
 
     QSqlQueryModel *model=new QSqlQueryModel();
     tutup=new QPushButton("Tutup");
-    search=new QPushButton("Search");
+    search_t=new QPushButton("Search");
     list_sekolah=new QTableView();
      nis=new QLineEdit();
 
@@ -60,7 +59,7 @@ void main_view::setup_ui(){
    header_tabel << "NIS"<<"Akreditasi"<<"Nama Sekolah"<<"Alamat";
 
     tampilan_h->addWidget(tutup);
-    tampilan_h->addWidget(search);
+    tampilan_h->addWidget(search_t);
     tampilan_h->addWidget(nis);
     tampilan_v->addWidget(list_sekolah);
     tampilan_core->addLayout(tampilan_h,2,0);
@@ -80,16 +79,17 @@ void main_view::setup_ui(){
     this->setLayout(tampilan_core);
 
     connect(tutup,SIGNAL(clicked()),this,SLOT(close()));
+    connect(search_t,SIGNAL(clicked()),this,SLOT(search_t_clicked()));
+
+
 
 }
+void main_view::search_t_clicked(){
+tampilan_data *jendela=new tampilan_data(NULL);
 
-
-
-
-
-void main_view::sate(){
-
+jendela->show();
 }
+
 
 int main_view::get_row(){
 
