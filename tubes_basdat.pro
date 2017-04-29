@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -24,6 +25,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        main_view.cpp
+        main_view.cpp \
+    tampilan_data.cpp
 
-HEADERS  += main_view.h
+HEADERS  += main_view.h \
+    tampilan_data.h
