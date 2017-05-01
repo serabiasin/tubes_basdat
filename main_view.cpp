@@ -55,6 +55,9 @@ void main_view::setup_ui(){
 
     model->setQuery("SELECT *FROM Sekolah");
     list_sekolah->setModel(model);
+    list_sekolah->hideColumn(1);
+    list_sekolah->hideColumn(4);
+    list_sekolah->resizeColumnsToContents();
     QStringList header_tabel;
    header_tabel << "NIS"<<"Akreditasi"<<"Nama Sekolah"<<"Alamat";
 
