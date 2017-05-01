@@ -7,10 +7,7 @@
 #include <QHBoxLayout>
 #include <QGridLayout>
 #include <QLineEdit>
-#include <QSqlQueryModel>
-#include <QTableView>
-
-
+#include <QTableWidget>
 class main_view : public QWidget
 {
     Q_OBJECT
@@ -18,15 +15,16 @@ class main_view : public QWidget
 public:
     main_view(QWidget *parent = 0);
     ~main_view();
-
+    int getrow();
     void setup_ui();
-    int get_row();
+    int get_id();
 private:
+    int store_id;
     QGridLayout *tampilan_core;
     QPushButton *tutup;
     QPushButton *search_t;
     QLineEdit *nis;
-    QTableView *list_sekolah;
+    QTableWidget *list_sekolah;
 
 private slots:
     void search_t_clicked();
