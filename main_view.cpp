@@ -59,14 +59,14 @@ void main_view::setup_ui(){
 qDebug()<<getrow();
 
     header_tabel << "NIS"<<"Nama Sekolah"<<"Akreditasi"<<"Alamat";
-   list_sekolah->setHorizontalHeaderLabels(header_tabel);
-
-   QSqlQuery query;
+    list_sekolah->setHorizontalHeaderLabels(header_tabel);
+    QSqlQuery query;
 
    query.exec("SELECT *FROM Sekolah");
    int row=0;
    while (query.next()) {
-      int column=0;
+   int column=0;
+
 for(column=0;column<6;column++){
        QTableWidgetItem *item=new QTableWidgetItem();
 
@@ -120,6 +120,7 @@ void main_view::search_t_clicked(){
 tampilan_data *jendela=new tampilan_data(NULL);
 
 jendela->show();
+jendela->set_nis(get_id());
 }
 
 
