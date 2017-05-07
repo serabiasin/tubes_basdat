@@ -17,8 +17,8 @@ main_view::main_view(QWidget *parent)
     QSqlDatabase db=QSqlDatabase::addDatabase("QMYSQL3");
     db.setDatabaseName("DATA_AKREDITASI");
     db.setHostName("localhost");
-    db.setUserName("root");
-    db.setPassword("enaksekali");
+    db.setUserName("tubes");
+    db.setPassword("tubesbasdat2017");
 
     if(!db.open()){
          QMessageBox::critical(this,"Mabok",tr("Error : ")+db.lastError().text());
@@ -27,6 +27,7 @@ main_view::main_view(QWidget *parent)
 
 
     this->setup_ui();
+    db.close();
 }
 
 main_view::~main_view()

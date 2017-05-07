@@ -4,6 +4,8 @@
 #include "main_view.h"
 #include "track_record.h"
 #include "biodata.h"
+#include "prestasi.h"
+#include "data_alumni.h"
 
 #include <QWidget>
 #include <QTabWidget>

@@ -2,6 +2,7 @@
 #define BIODATA_H
 
 #include "tampilan_data.h"
+#include "track_record.h"
 
 #include <QDialog>
 #include <QLabel>
@@ -24,6 +25,7 @@ public:
   void set_nomor_pk(int pk); //nomor induk sekolah
   void set_jumlah_sekolah(int pk); //jumlah siswa
   void set_jkelas_sekolah(int pk);
+  void count_max_sis(int pk);
 
 private:
 
@@ -40,6 +42,9 @@ private:
 
    QLabel *nomor_induk;
    QLineEdit *nomor_i;
+
+   QLabel *max_sis;
+   QLineEdit *siswa_pkelas;
 
 };
 

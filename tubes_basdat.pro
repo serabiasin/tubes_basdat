@@ -28,9 +28,13 @@ SOURCES += main.cpp\
         main_view.cpp \
     tampilan_data.cpp \
     track_record.cpp \
-    biodata.cpp
+    biodata.cpp \
+    prestasi.cpp \
+    data_alumni.cpp
 
 HEADERS  += main_view.h \
     tampilan_data.h \
     track_record.h \
-    biodata.h
+    biodata.h \
+    prestasi.h \
+    data_alumni.h
