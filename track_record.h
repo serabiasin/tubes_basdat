@@ -5,7 +5,10 @@
 class track_record :public QDialog
 {
 public:
-    track_record();
+    track_record(int id);
+
+ private:
+    int nis;
 };
 
 #endif // TRACK_RECORD_H

@@ -27,10 +27,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
         main_view.cpp \
     tampilan_data.cpp \
-    biodata.cpp \
-    track_record.cpp
+    track_record.cpp \
+    biodata.cpp
 
 HEADERS  += main_view.h \
     tampilan_data.h \
-    biodata.h \
-    track_record.h
+    track_record.h \
+    biodata.h

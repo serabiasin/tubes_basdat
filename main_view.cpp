@@ -7,6 +7,8 @@
 #include <QDebug>
 #include <QTableWidgetItem>
 
+
+
 main_view::main_view(QWidget *parent)
     : QWidget(parent)
 {
@@ -22,7 +24,6 @@ main_view::main_view(QWidget *parent)
          QMessageBox::critical(this,"Mabok",tr("Error : ")+db.lastError().text());
          return;
 }
-
 
 
     this->setup_ui();
@@ -51,15 +52,17 @@ void main_view::setup_ui(){
     search_t=new QPushButton("Search");
     nis=new QLineEdit();
     list_sekolah=new QTableWidget();
+
     list_sekolah->clear();
     list_sekolah->setColumnCount(4);
     list_sekolah->setRowCount(getrow());
+
     QStringList header_tabel;
 
-qDebug()<<getrow();
 
     header_tabel << "NIS"<<"Nama Sekolah"<<"Akreditasi"<<"Alamat";
     list_sekolah->setHorizontalHeaderLabels(header_tabel);
+
     QSqlQuery query;
 
    query.exec("SELECT *FROM Sekolah");
@@ -69,6 +72,7 @@ qDebug()<<getrow();
 
 for(column=0;column<6;column++){
        QTableWidgetItem *item=new QTableWidgetItem();
+       item->setFlags(Qt::ItemIsSelectable|Qt::ItemIsEnabled); //membuat tabel read only
 
        if(column==0){
            item->setText(QString::number(query.value(column).toInt()));
@@ -94,16 +98,15 @@ for(column=0;column<6;column++){
 
 row++;
    }
-
-
+    list_sekolah->resizeColumnToContents(1);
+    list_sekolah->resizeColumnToContents(2);
+    list_sekolah->resizeColumnToContents(3);
     tampilan_h->addWidget(tutup);
     tampilan_h->addWidget(search_t);
     tampilan_h->addWidget(nis);
     tampilan_v->addWidget(list_sekolah,3);
     tampilan_core->addLayout(tampilan_h,2,0);
     tampilan_core->addLayout(tampilan_v,1,0);
-
-
 
 
     this->setLayout(tampilan_core);
@@ -115,12 +118,15 @@ row++;
 
 }
 void main_view::search_t_clicked(){
-  store_id=nis->text().toInt();
 
+
+tampilan_data::prime_knight=nis->text().toInt();
 tampilan_data *jendela=new tampilan_data(NULL);
+/*Memakai prosedur menggunakan paramter untuk menset value*/
+/*jendela->sebuah_fungsi(value);*/
 
-jendela->show();
-jendela->set_nis(get_id());
+
+
 }
 
 
@@ -134,9 +140,4 @@ while (query.next()) {
 }
 
     return counter;
-}
-
-
-int main_view::get_id(){
-    return store_id;
 }
